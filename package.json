@@ -1,14 +1,14 @@
 {
-  "name": "http-proxy",
+  "name": "@ambassify/http-proxy",
   "version": "1.17.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nodejitsu/node-http-proxy.git"
+    "url": "https://github.com/ambassify/node-http-proxy.git"
   },
   "description": "HTTP proxying for the masses",
   "author": "Charlie Robbins <charlie.robbins@gmail.com>",
   "maintainers": [
-    "jcrugzz <jcrugzz@gmail.com>"
+    "Ambassify <dev@ambassify.com>"
   ],
   "main": "index.js",
   "dependencies": {
