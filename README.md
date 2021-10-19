@@ -1,3 +1,12 @@
+# Modifications
+
+This fork adds
+
+- Support for modifying content of websocket streams [#2](https://github.com/ambassify/node-http-proxy/pull/2)
+- Fix for issues when using an Agent. [#1478](https://github.com/http-party/node-http-proxy/issues/1478) [#1](https://github.com/ambassify/node-http-proxy/pull/1)
+
+<hr />
+
 <p align="center">
   <img src="https://raw.github.com/nodejitsu/node-http-proxy/master/doc/logo.png"/>
 </p>
