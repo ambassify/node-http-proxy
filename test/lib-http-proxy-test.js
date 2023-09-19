@@ -1,5 +1,6 @@
 var httpProxy = require('../lib/http-proxy'),
     expect    = require('expect.js'),
+    crypto      = require('crypto'),
     http      = require('http'),
     net       = require('net'),
     ws        = require('ws'),
@@ -336,7 +337,7 @@ describe('lib/http-proxy.js', function() {
         });
 
         client.on('message', function (msg) {
-          expect(msg).to.be('Hello over websockets');
+          expect(msg.toString()).to.be('Hello over websockets');
           client.close();
           proxyServer.close();
           destiny.close();
@@ -346,7 +347,7 @@ describe('lib/http-proxy.js', function() {
 
       destiny.on('connection', function (socket) {
         socket.on('message', function (msg) {
-          expect(msg).to.be('hello there');
+          expect(msg.toString()).to.be('hello there');
           socket.send('Hello over websockets');
         });
       });
@@ -428,7 +429,7 @@ describe('lib/http-proxy.js', function() {
       }),
       proxyServer = proxy.listen(ports.proxy),
       server = http.createServer(),
-      destiny = io.listen(server);
+      destiny = new io.Server(server);
 
       function startSocketIo() {
         var client = ioClient.connect('ws://127.0.0.1:' + ports.proxy);
@@ -464,7 +465,7 @@ describe('lib/http-proxy.js', function() {
       });
       var proxyServer = proxy.listen(ports.proxy);
       var server = http.createServer();
-      var destiny = io.listen(server);
+      var destiny = new io.Server(server);
 
       function startSocketIo() {
         var client = ioClient.connect('ws://127.0.0.1:' + ports.proxy, {rejectUnauthorized: null});
@@ -499,7 +500,7 @@ describe('lib/http-proxy.js', function() {
       }),
       proxyServer = proxy.listen(ports.proxy),
       destiny = new ws.Server({ port: ports.source }, function () {
-        var key = new Buffer(Math.random().toString()).toString('base64');
+        var key = crypto.randomBytes(16).toString("base64");
 
         var requestOptions = {
           port: ports.proxy,
@@ -554,7 +555,7 @@ describe('lib/http-proxy.js', function() {
         });
 
         client.on('message', function (msg) {
-          expect(msg).to.be('Hello over websockets');
+          expect(msg.toString()).to.be('Hello over websockets');
           client.close();
           proxyServer.close();
           destiny.close();
@@ -562,11 +563,11 @@ describe('lib/http-proxy.js', function() {
         });
       });
 
-      destiny.on('connection', function (socket) {
-        expect(socket.upgradeReq.headers['x-special-proxy-header']).to.eql('foobar');
+      destiny.on('connection', function (socket, upgradeReq) {
+        expect(upgradeReq.headers['x-special-proxy-header']).to.eql('foobar');
 
         socket.on('message', function (msg) {
-          expect(msg).to.be('hello there');
+          expect(msg.toString()).to.be('hello there');
           socket.send('Hello over websockets');
         });
       });
@@ -588,7 +589,7 @@ describe('lib/http-proxy.js', function() {
         });
 
         client.on('message', function (msg) {
-          expect(msg).to.be('Hello over websockets');
+          expect(msg.toString()).to.be('Hello over websockets');
           client.close();
           proxyServer.close();
           destiny.close();
@@ -598,7 +599,7 @@ describe('lib/http-proxy.js', function() {
 
       destiny.on('connection', function (socket) {
         socket.on('message', function (msg) {
-          expect(msg).to.be(payload);
+          expect(msg.toString()).to.be(payload);
           socket.send('Hello over websockets');
         });
       });
@@ -620,7 +621,7 @@ describe('lib/http-proxy.js', function() {
         });
 
         client.on('message', function (msg) {
-          expect(msg).to.be('Hello over websockets');
+          expect(msg.toString()).to.be('Hello over websockets');
           client.close();
           proxyServer.close();
           destiny.close();
@@ -630,7 +631,7 @@ describe('lib/http-proxy.js', function() {
 
       destiny.on('connection', function (socket) {
         socket.on('message', function (msg) {
-          expect(msg).to.be(payload);
+          expect(msg.toString()).to.be(payload);
           socket.send('Hello over websockets');
         });
       });
