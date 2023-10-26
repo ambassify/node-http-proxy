@@ -16,6 +16,9 @@
     "follow-redirects": "^1.15.2",
     "requires-port": "^1.0.0"
   },
+  "overrides": {
+    "@babel/core@7": "^7.23.2"
+  },
   "devDependencies": {
     "async": "^2.6.4",
     "concat-stream": "^1.6.2",
