@@ -8,6 +8,8 @@ This fork adds
   - [PR #4](https://github.com/ambassify/node-http-proxy/pull/4)
   - [PR #5](https://github.com/ambassify/node-http-proxy/pull/5)
   - [Commit 1b0585f](https://github.com/ambassify/node-http-proxy/commit/1b0585f5d8d6ba6e9af3e7cf06fe0d6ff714cc03)
+  - [Commit 132f7c1](https://github.com/ambassify/node-http-proxy/commit/132f7c1a5069dbcf398ef61d6ce092bc11c4c4cb)
+
 
 <hr />
 
