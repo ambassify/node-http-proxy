@@ -10,6 +10,7 @@ This fork adds
   - [Commit 1b0585f](https://github.com/ambassify/node-http-proxy/commit/1b0585f5d8d6ba6e9af3e7cf06fe0d6ff714cc03)
   - [Commit 132f7c1](https://github.com/ambassify/node-http-proxy/commit/132f7c1a5069dbcf398ef61d6ce092bc11c4c4cb)
   - [Commit f774475](https://github.com/ambassify/node-http-proxy/commit/f7744751b2c210c070cc69a9f0c33ca710ae7e19)
+  - [Commit 514b896](https://github.com/ambassify/node-http-proxy/commit/514b896f3846950cff4ae88ee735494bae81bf8a)
 
 
 <hr />
