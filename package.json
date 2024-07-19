@@ -26,10 +26,10 @@
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
     "semver": "^5.7.2",
-    "socket.io": "^4.7.2",
-    "socket.io-client": "^4.7.2",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
     "sse": "0.0.6",
-    "ws": "^8.14.1"
+    "ws": "^8.18.0"
   },
   "scripts": {
     "mocha": "mocha --exit test/*-test.js",
